@@ -1,0 +1,173 @@
+{% if latest_events_list %}
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>PST Browse Events</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'events/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'events/assets/css/fontawesome.css'%}">
+    <link rel="stylesheet" href="{% static 'events/assets/css/templatemo-cyborg-gaming.css' %}">
+    <link rel="stylesheet" href="{% static 'events/assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'events/assets/css/animate.css' %}">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+<!--
+
+TemplateMo 579 Cyborg Gaming
+
+https://templatemo.com/tm-579-cyborg-gaming
+
+-->
+  </head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="www.pst.co.zw" class="logo">
+                        <h4>Primier Smart Ticketting<h4>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Search start ***** -->
+                    
+                    <!-- ***** Search End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <li><a href="/events/" class="active">Home</a></li>
+                        <li><a href="browse.html">Browse</a></li>
+                        <li><a href="details.html">Details</a></li>
+                        <li><a href="streams.html">Streams</a></li>
+                        <li><a href="profile.html">Profile <img src="{% static 'events/assets/images/profile-header.jpg' %}" alt=""></a></li>
+                    </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Banner Start ***** -->
+          <div class="main-banner">
+            <div class="row">
+              <div class="col-lg-7">
+                <div class="header-text">
+                  <h6>Welcome To PST</h6>
+                  <h4><em>Browse</em> Recent Events Here</h4>
+                  <div class="main-button">
+                    <a href="browse.html">Browse All</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Banner End ***** -->
+
+          <!-- ***** Most Popular Start ***** -->
+          <div class="most-popular">
+            <div class="row">
+            
+            
+              <div class="col-lg-12">
+                <div class="heading-section">
+                  <h4><em>Recent Events</em> Right Now</h4>
+                </div>
+                <div class="row">
+                {% for event in latest_events_list %}
+                <a href ="/events/listings/{{event.id}}/"
+                  <div class="col-lg-3 col-sm-6">
+                  
+                    <div class="item">
+                      <img src="{% static 'events/assets/images/popular-01.jpg' %}" alt="">
+                      <h4>{{event.title}}<br><span>{{event.Event_Location}}</span></h4>
+                      <ul>
+                        <li><i class="fa fa-star"></i> 4.8</li>
+                        <li><i class="fa fa-download"></i> 2.3M</li>
+                      </ul>
+                    </div>
+                    {%endfor%}
+                  </div>
+                
+                  
+              </div>
+            </div>
+          </div>
+          <!-- ***** Most Popular End ***** -->
+
+          <!-- ***** event Library Start ***** -->
+          
+          <!-- ***** event Library End ***** -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright © 2022 <a href="#">Premier Smart Ticketting</a> Company. All rights reserved. 
+          
+          <br>Design: <a href="https://templatemo.com" target="_blank" title="Git">@Rapid27</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'events/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'events/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+  <script src="{% static 'events/assets/js/isotope.min.js' %}"></script>
+  <script src="{% static 'events/assets/js/owl-carousel.js' %}"></script>
+  <script src="{% static 'events/assets/js/tabs.js' %}"></script>
+  <script src="{% static 'events/assets/js/popup.js' %}"></script>
+  <script src="{% static 'events/assets/js/custom.js' %}"></script>
+
+
+  </body>
+
+</html>
+{%else%}
+    <p>No Events Available </p>
+{%endif%}

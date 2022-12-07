@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Dec  4 12:48:38 2022
+
+@author: Maringire
+"""
+
+{% if event_data %}
+
+<form action= "/events/listings/{{selected_event.id}}/" method="POST">
+
+{%csrf_token%}
+<fieldset>
+    <legend><h1>{{selected_event.title}}</h1><legend>
+    
+    {% if error_message %}
+    <p><strong> {{error_message}}</strong></p>
+    
+    {%endif%}
+    
+    {%if null_message%}
+    <p><strong>{{null_message}}</strong><p>
+    {%endif%}
+    
+    {%if success_message%}
+    <p><strong>{{success_message}}</strong><p>
+    {%endif%}
+    
+    {%if failure_message%}
+    <p><strong>{{failure_message}}</strong><p>
+    {%endif%}
+    
+    <input type="text" name="CheckIn" id= "check">
+        
+</fieldset>
+<input type = "submit" value="chkin">
+</form>
+{%else%}
+    <p> Uploaded data not valid, Please Recheck</p>
+{%endif%}
